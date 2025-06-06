@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<body>
+    <div class="container">
+        <h1>📥 Download Videos</h1>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <!-- Download Form -->
+        <form method="POST">
+            <input type="url" name="url" placeholder="Paste your video URL here" required>
+            <button type="submit">Download</button>
+        </form>
+
+        <p class="footer">Supports YouTube, TikTok, Instagram, and more</p>
+    </div>
+</body>
+</html>
